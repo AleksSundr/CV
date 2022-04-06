@@ -1,0 +1,15 @@
+.skills {
+
+    ul {
+        list-style : disc inside;
+        line-height: 1.8;
+
+        li {
+            color: $accent;
+
+            span {
+                color: $white;
+            }
+        }
+    }
+}

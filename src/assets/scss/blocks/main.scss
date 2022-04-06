@@ -1,0 +1,65 @@
+.main {
+    display  : grid;
+    grid-area: main;
+
+    >* {
+        grid-area: 1/-1;
+    }
+
+    .bg {
+        width       : 100%;
+        height      : 100%;
+        opacity     : 0.2;
+        object-fit: cover;
+    }
+}
+
+.main__content {
+    z-index: 1;
+    display: grid;
+    gap    : 2rem;
+
+    padding    : 4rem clamp(1.6rem, 5vw - 1rem, 8rem);
+    line-height: 1.7;
+
+    align-content: baseline;
+
+    >div {
+        display: grid;
+        gap    : 1.5rem;
+
+        @include breakpoint($tablet) {
+            justify-items: center;
+        }
+    }
+
+    >* {
+        color    : #595959;
+        font-size: 2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: $black;
+    }
+
+    h2 {
+        @include font(2.4rem, 700);
+    }
+
+    .underline {
+        position: relative;
+        width   : fit-content;
+    }
+
+    .underline::after {
+        @include pseudo;
+        top             : 100%;
+        width           : 100%;
+        height          : 0.2rem;
+        background-color: red;
+        z-index         : 1;
+    }
+}

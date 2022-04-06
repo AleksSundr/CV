@@ -1,0 +1,41 @@
+.contacts {
+
+    span {
+        @include font(1.6rem, 700)
+    }
+
+    .contacts_item {
+        display: flex;
+        gap    : 1rem;
+
+        align-items: baseline;
+
+
+        a {
+            font-size      : 1.8rem;
+            color          : #8E949C;
+            text-decoration: underline;
+            outline        : none;
+
+            transition: font-size .2s linear;
+
+            &:hover,
+            &:focus {
+                color     : orange;
+                transition: color .2s linear;
+            }
+
+            @media (max-width: 770px) {
+                color     : orange;
+                opacity: 0.9;
+                font-weight: 500;
+
+
+                &:focus {
+                    font-size: 2rem;
+                    transition: font-size .2s linear;
+                }
+            }
+        }
+    }
+}
