@@ -394,24 +394,21 @@ body {
     }
 }
 
-.contacts .github {
-    padding-top: 2rem;
-    position: relative;
+.contacts .linkedin a {
+    max-width: 18rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.contacts .github::before {
-    content: "";
-    display: block;
-    position: absolute;
+.contacts_divider {
     height: 0.2rem;
     width: 100%;
-    top: 10%;
     background-color: #30367b;
-    z-index: 1;
 }
 
 @media (max-width: 769px) {
-    .contacts .github::before {
+    .contacts_divider {
         height: 0.1rem;
     }
 }
@@ -432,10 +429,11 @@ body {
 .burger {
     display: none;
     width: 4rem;
-    height: 3rem;
+    height: 3.3rem;
     font-size: 0;
     background: none;
     outline: none;
+    overflow: hidden;
     position: fixed;
     right: 0;
     -webkit-transform: translate(-50%, 50%);
@@ -494,6 +492,46 @@ body {
     right: 0;
     background: red;
     transition: background 0.2s linear, width 0.2s linear;
+}
+
+.burger:hover .redLine, .burger:focus .redLine {
+    display: none;
+}
+
+.burger .redLine {
+    position: absolute;
+    width: 70%;
+    height: 0.8rem;
+    background: red;
+    border-radius: 50% 150% 150% 50%/100% 100% 100% 100%;
+    box-shadow: 5px 0px 7px 2px white;
+    top: -0.2rem;
+    -webkit-animation: redLine 5s infinite linear;
+    animation: redLine 5s infinite linear;
+}
+
+@-webkit-keyframes redLine {
+    from {
+        -webkit-transform: translateX(500px);
+        transform: translateX(500px);
+    }
+
+    to {
+        -webkit-transform: translateX(-500px);
+        transform: translateX(-500px);
+    }
+}
+
+@keyframes redLine {
+    from {
+        -webkit-transform: translateX(500px);
+        transform: translateX(500px);
+    }
+
+    to {
+        -webkit-transform: translateX(-500px);
+        transform: translateX(-500px);
+    }
 }
 
 @media (max-width: 769px) {
@@ -634,6 +672,8 @@ body {
     width: 100%;
     height: 100%;
     aspect-ratio: 16/9;
+    -o-object-fit: cover;
+    object-fit: cover;
     border-radius: 1rem;
     box-shadow: 0 0 1.5rem #000;
 }
@@ -666,7 +706,7 @@ body {
         bottom: 20%;
         right: 0;
         width: 30%;
-        transition: width 0.5s linear;
+        transition: width 0.5s cubic-bezier(0.49, -0.31, 0.46, 1.34);
     }
 
     .project__item_img:hover {
